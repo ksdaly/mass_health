@@ -29,11 +29,11 @@ CSV.foreach("#{Rails.root}/db/data/mass_chip_data.csv", :headers => true) do |ro
     p_teen_births: row[14]
   }
 
-  health_record = TownHealthRecord.where(data).first
+  health_record = TownHealthRecord.where(geography: row[0]).first
   if health_record.nil?
     health_record = TownHealthRecord.new(data)
   else
-    health_record.update_attributes(data)
+    health_record = health_record.update_attributes(data)
   end
   health_record.save!
 end
