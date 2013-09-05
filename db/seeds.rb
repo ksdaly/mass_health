@@ -4,7 +4,7 @@ require 'csv'
 CSV.foreach("#{Rails.root}/db/data/mass_chip_data.csv", :headers => true) do |row|
   row.each do |entry|
     if !entry[1].nil?
-      entry[1] = entry[1].gsub(/[\s|,|$]/,"")
+      entry[1] = entry[1].gsub(/[,|$]/,"").strip
       if entry[1].match(/NA/)
         entry[1] = nil
       end
