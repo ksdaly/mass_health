@@ -5,6 +5,6 @@ SELECT * FROM town_health_records ORDER BY age_0_19 DESC  LIMIT(3);
 --What 5 towns have the lowest per capita income?
 SELECT * FROM town_health_records ORDER BY per_capita_income LIMIT(5);
 --Omitting Boston, Becket, and Beverly, what town has the highest percentage of teen births?
-SELECT * FROM town_health_records WHERE geography NOT IN ('Boston', 'Becket','Beverly') ORDER BY p_teen_births DESC LIMIT(1);
+SELECT * FROM town_health_records WHERE (geography NOT IN ('Boston', 'Becket','Beverly')  AND p_teen_births  IS NOT NULL) ORDER BY p_teen_births DESC LIMIT(1);
 --Omitting Boston, what town has the highest number of infant mortalities?
-SELECT * FROM town_health_records WHERE geography NOT IN ('Boston') ORDER BY number_of_infant_deaths DESC LIMIT(1);
+SELECT * FROM town_health_records WHERE (geography NOT IN ('Boston') AND number_of_infant_deaths IS NOT NULL) ORDER BY number_of_infant_deaths DESC LIMIT(1);
