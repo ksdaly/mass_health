@@ -37,6 +37,12 @@ gem 'pry'
 
 gem 'table_print'
 
+gem 'sunspot_rails'
+
+group :development do
+  gem 'sunspot_solr'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

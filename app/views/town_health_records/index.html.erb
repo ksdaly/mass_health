@@ -1,0 +1,9 @@
+<%= form_tag town_health_records_path, method: :get do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", geography: nil %>
+<% end %>
+
+<% @town_health_records.each do |record| %>
+  <p><%= record.geography %></p>
+<% end %>
